@@ -19,13 +19,13 @@ module RedmineAnonymousWatchers
     end
 
     module InstanceMethods
-      def issue_add_with_anonymous_watchers(issue)
+      def issue_add_with_anonymous_watchers(issue, to, cc)
         @subscription_recipients = issue.project.issues_recipients
-        issue_add_without_anonymous_watchers(issue)
+        issue_add_without_anonymous_watchers(issue, to, cc)
       end
-      def issue_edit_with_anonymous_watchers(journal)
+      def issue_edit_with_anonymous_watchers(journal, to, cc)
         @subscription_recipients = journal.project.issues_recipients
-        issue_edit_without_anonymous_watchers(journal)
+        issue_edit_without_anonymous_watchers(journal, to, cc)
       end
       def document_added_with_anonymous_watchers(document)
         @subscription_recipients = document.project.documents_recipients
